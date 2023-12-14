@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>INST377 Final Project</title>
+        <script defer type= "text/javascript" src="final.js"></script>
+    </head>
+    <body>
+        <!-- Search Bar -->
+        <form id="search-form" onsubmit="getSearchResults(); return false">
+            <label for="search-input">Enter Song/Artist/Album:</label>
+            <input type="search" id="search-input" placeholder="Search...">
+            <br>
+
+            <label for="search-type">Choose Type of Search:</label>
+            <select id="search-type">
+                <option>Track</option>
+                <option>Artist</option>
+                <option>Album</option>
+            </select>
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Search Results Div -->
+        <div class="searchResults">
+            <table id="resultsTable">
+                <!-- JS loads table data -->
+            </table>
+        </div>
+
+        <!-- Song/Artist/Album Info Div -->
+        <div id="infoDiv">
+            <!-- JS loads info here -->
+        </div>
+
+        <!-- Recommendations Div -->
+        <div id="recDiv">
+            <!-- JS loads info here -->
+        </div>
+    </body>
+</html>
