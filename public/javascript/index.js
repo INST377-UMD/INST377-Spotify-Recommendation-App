@@ -33,17 +33,15 @@ async function getSearchResults() {
   })
   .then(res => res.json())
   .then(data => {
-    const table = document.getElementById('resultsTable');
+    const resultsDiv = document.getElementById('searchResults');
 
     function displayResults(list) {
-      while(table.hasChildNodes()) {
-        table.removeChild(table.firstChild);
+      while(resultsDiv.hasChildNodes()) {
+        resultsDiv.removeChild(resultsDiv.firstChild);
       }
-      const tbody = document.createElement('tbody')
+      const buttonDiv = document.createElement('div')
 
       for (let i = 0; i < list.length; i++) {
-        const row = tbody.insertRow()
-        const result = row.insertCell()
         const name = list[i].name
         const spotifyID = list[i].id
         const nameButton = document.createElement('button')
@@ -54,10 +52,11 @@ async function getSearchResults() {
           nameButton.innerHTML = `${name}`
         }
         nameButton.onclick = function () {loadData(spotifyID)}
-        result.appendChild(nameButton)
+        nameButton.setAttribute('class', 'button-24')
+        nameButton.style.margin = "5px";
+        buttonDiv.appendChild(nameButton)
       }
-
-      table.appendChild(tbody)
+      resultsDiv.appendChild(buttonDiv)
     }
 
     if(type == "artist")  {
@@ -98,6 +97,8 @@ async function loadData(id) {
       while(infoDiv.hasChildNodes()) {
         infoDiv.removeChild(infoDiv.firstChild);
       }
+
+      infoDiv.setAttribute('class', 'content-box')
 
       const name = document.createElement('h2');
       name.innerHTML = `Name: ${data.name}`;
@@ -164,6 +165,8 @@ async function loadData(id) {
         infoDiv.removeChild(infoDiv.firstChild);
       }
 
+      infoDiv.setAttribute('class', 'content-box')
+
       const name = document.createElement('h2');
       name.innerHTML = `Name: ${data.name}`;
       infoDiv.appendChild(name);
@@ -225,6 +228,8 @@ async function loadData(id) {
       while(infoDiv.hasChildNodes()) {
         infoDiv.removeChild(infoDiv.firstChild);
       }
+
+      infoDiv.setAttribute('class', 'content-box')
 
       const name = document.createElement('h2');
       name.innerHTML = `Name: ${data.name}`;
