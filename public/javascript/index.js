@@ -137,13 +137,44 @@ async function loadData(id) {
         recDiv.removeChild(recDiv.firstChild)
       }
 
-      const recList = document.createElement('ul')
+      recDiv.setAttribute('class', 'content-box')
+      
+      const table = document.createElement('table')
+      const headerRow = document.createElement('tr')
+
+      const artistHeader = document.createElement('th')
+      artistHeader.innerHTML = "Artist"
+      headerRow.appendChild(artistHeader)
+
+      const followersHeader = document.createElement('th')
+      followersHeader.innerHTML = "Followers"
+      headerRow.appendChild(followersHeader)
+
+      const genreHeader = document.createElement('th')
+      genreHeader.innerHTML = "Genres"
+      headerRow.appendChild(genreHeader)
+
+      table.appendChild(headerRow)
+
       for (let i = 0; i < data2.artists.length; i++) {
-        const recArtist = document.createElement('li')
-        recArtist.innerHTML = `${data2.artists[i].name}`
-        recList.appendChild(recArtist)
+        const row = document.createElement('tr')
+
+        const artist = document.createElement('td')
+        artist.innerHTML = `${data2.artists[i].name}`
+        row.appendChild(artist)
+
+        const followers = document.createElement('td')
+        followers.innerHTML = `${data2.artists[i].followers.total}`
+        row.appendChild(followers)
+
+        const genres = document.createElement('td')
+        genres.innerHTML = `${data2.artists[i].genres}`
+        row.appendChild(genres)
+
+        table.appendChild(row)
       }
-      recDiv.appendChild(recList)
+      
+      recDiv.appendChild(table)
 
     })
 
@@ -184,7 +215,7 @@ async function loadData(id) {
       infoDiv.appendChild(pic)
     })
 
-    // This API call gets the recommended ARTIST for the ARTIST submitted by the user
+    // This API call gets the recommended TRACK for the TRACK submitted by the user
     const url2 = `https://api.spotify.com/v1/recommendations?seed_tracks=${id}`
     var trackRecs = await fetch (url2, {
       method: 'GET',
@@ -202,13 +233,52 @@ async function loadData(id) {
         recDiv.removeChild(recDiv.firstChild)
       }
 
-      const recList = document.createElement('ul')
+      recDiv.setAttribute('class', 'content-box')
+
+      const table = document.createElement('table')
+      const headerRow = document.createElement('tr')
+
+      const trackHeader = document.createElement('th')
+      trackHeader.innerHTML = "Track"
+      headerRow.appendChild(trackHeader)
+
+      const artistHeader = document.createElement('th')
+      artistHeader.innerHTML = "Artist"
+      headerRow.appendChild(artistHeader)
+
+      const albumHeader = document.createElement('th')
+      albumHeader.innerHTML = "Album"
+      headerRow.appendChild(albumHeader)
+
+      const durationHeader = document.createElement('th')
+      durationHeader.innerHTML = "Duration"
+      headerRow.appendChild(durationHeader)
+
+      table.appendChild(headerRow)
+
       for (let i = 0; i < data2.tracks.length; i++) {
-        const recTrack = document.createElement('li')
-        recTrack.innerHTML = `${data2.tracks[i].name} - ${data2.tracks[i].artists[0].name}`
-        recList.appendChild(recTrack)
+        const row = document.createElement('tr')
+
+        const trackName = document.createElement('td')
+        trackName.innerHTML = `${data2.tracks[i].name}`
+        row.appendChild(trackName)
+
+        const artist = document.createElement('td')
+        artist.innerHTML = `${data2.tracks[i].artists[0].name}`
+        row.appendChild(artist)
+
+        const albumName = document.createElement('td')
+        albumName.innerHTML = `${data2.tracks[i].album.name}`
+        row.appendChild(albumName)
+
+        const duration = document.createElement('td')
+        duration.innerHTML = `${millisToMinutesAndSeconds(data2.tracks[i].duration_ms)}`
+        row.appendChild(duration)
+
+        table.appendChild(row)
       }
-      recDiv.appendChild(recList)
+      
+      recDiv.appendChild(table)
     })
 
   // ALBUM API CALL
@@ -267,13 +337,43 @@ async function loadData(id) {
         recDiv.removeChild(recDiv.firstChild)
       }
 
-      const albumTracklist = document.createElement('ul')
+      recDiv.setAttribute('class', 'content-box')
+
+      const table = document.createElement('table')
+      const headerRow = document.createElement('tr')
+
+      const trackNumHeader = document.createElement('th')
+      trackNumHeader.innerHTML = "Track #"
+      headerRow.appendChild(trackNumHeader)
+
+      const trackHeader = document.createElement('th')
+      trackHeader.innerHTML = "Track Name"
+      headerRow.appendChild(trackHeader)
+
+      const durationHeader = document.createElement('th')
+      durationHeader.innerHTML = "Duration"
+      headerRow.appendChild(durationHeader)
+
+      table.appendChild(headerRow)
+
       for (let i = 0; i < data2.items.length; i++) {
-        const albumTrack = document.createElement('li')
-        albumTrack.innerHTML = `${data2.items[i].track_number}. ${data2.items[i].name}`
-        albumTracklist.appendChild(albumTrack)
+        const row = document.createElement('tr')
+
+        const trackNum = document.createElement('td')
+        trackNum.innerHTML = `${data2.items[i].track_number}. `
+        row.appendChild(trackNum)
+
+        const trackName = document.createElement('td')
+        trackName.innerHTML = `${data2.items[i].name}`
+        row.appendChild(trackName)
+
+        const duration = document.createElement('td')
+        duration.innerHTML = `${millisToMinutesAndSeconds(data2.items[i].duration_ms)}`
+        row.appendChild(duration)
+
+        table.appendChild(row)
       }
-      recDiv.appendChild(albumTracklist)
+      recDiv.appendChild(table)
     })
 
   }
