@@ -52,7 +52,7 @@ async function getSearchResults() {
           nameButton.innerHTML = `${name}`
         }
         nameButton.onclick = function () {loadData(spotifyID)}
-        nameButton.setAttribute('class', 'button-24')
+        nameButton.setAttribute('class', 'button-24-2')
         nameButton.style.margin = "5px";
         buttonDiv.appendChild(nameButton)
       }
