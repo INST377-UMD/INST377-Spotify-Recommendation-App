@@ -100,7 +100,7 @@ async function loadData(id) {
 
       infoDiv.setAttribute('class', 'content-box')
 
-      const name = document.createElement('h2');
+      const name = document.createElement('h3');
       name.innerHTML = `Name: ${data.name}`;
       infoDiv.appendChild(name);
 
@@ -198,7 +198,7 @@ async function loadData(id) {
 
       infoDiv.setAttribute('class', 'content-box')
 
-      const name = document.createElement('h2');
+      const name = document.createElement('h3');
       name.innerHTML = `Name: ${data.name}`;
       infoDiv.appendChild(name);
 
@@ -212,6 +212,7 @@ async function loadData(id) {
 
       const pic = document.createElement('img')
       pic.setAttribute('src', `${data.album.images[0].url}`)
+      pic.style.height = "40%"
       infoDiv.appendChild(pic)
     })
 
@@ -301,7 +302,7 @@ async function loadData(id) {
 
       infoDiv.setAttribute('class', 'content-box')
 
-      const name = document.createElement('h2');
+      const name = document.createElement('h3');
       name.innerHTML = `Name: ${data.name}`;
       infoDiv.appendChild(name);
 
