@@ -410,11 +410,10 @@ async function addSearch(name, type, id) {
 }
 
 function checkLocalStorage() {
-  if (localStorage) {
-    document.getElementById('search-input').value = localStorage.getItem("spotify_name")
+  if (localStorage.length > 0) {
     document.getElementById('search-type').value = localStorage.getItem("searchType")
     console.log(localStorage.getItem("spotify_name"),localStorage.getItem("searchType"))
-    getSearchResults()
+    loadData(localStorage.getItem('spotify_id'))
     localStorage.removeItem("spotify_id")
     localStorage.removeItem("spotify_name")
     localStorage.removeItem("searchType")
