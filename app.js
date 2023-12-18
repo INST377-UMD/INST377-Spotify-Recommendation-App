@@ -10,8 +10,8 @@ const supabaseURL = 'https://pueflwasgpnrgcwsoqop.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB1ZWZsd2FzZ3Bucmdjd3NvcW9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI1MjM3MTAsImV4cCI6MjAxODA5OTcxMH0.LkJmwOK29RFHNWG-_xhBMyFa0igYXw5yHexUAg1XwgA'
 const supabase = supabaseClient.createClient(supabaseURL, supabaseKey);
 
-app.get('/home.html', (req, res) => {
-    res.sendFile('public/home.html', {root: __dirname})
+app.get('/', (req, res) => {
+    res.sendFile('public/index.html', {root: __dirname})
 })
 
 app.get('/history', async (req, res) => {
@@ -36,11 +36,11 @@ app.post('/history', async (req, res) => {
     var spotify_id = req.body.spotify_id
 
     const {data, error} = await supabase
-    .from('Spotify Search History')
-    .insert([
-        {'name': name, 'type': type, 'spotify_id': spotify_id}
-    ])
-    .select();
+        .from('Spotify Search History')
+        .insert([
+            {'name': name, 'type': type, 'spotify_id': spotify_id}
+        ])
+        .select();
 
     console.log(data)
     res.header('Content-type', 'application/json')
