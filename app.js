@@ -18,7 +18,7 @@ app.get('/history', async (req, res) => {
     console.log('Getting History')
 
     const {data, error} = await supabase
-    .from('Spotify Search History')
+    .from('search_history')
     .select()
 
     if (error) {
@@ -36,7 +36,7 @@ app.post('/history', async (req, res) => {
     var spotify_id = req.body.spotify_id
 
     const {data, error} = await supabase
-        .from('Spotify Search History')
+        .from('search_history')
         .insert([
             {'name': name, 'type': type, 'spotify_id': spotify_id}
         ])

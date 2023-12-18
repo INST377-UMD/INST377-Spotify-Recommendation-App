@@ -76,9 +76,10 @@ async function getSearchResults() {
 }
 
 // Loads information about the desired artist/track/album
-async function loadData(id) {
+async function loadData(id_param) {
   const token = await getToken()
   const type = document.getElementById('search-type').value.toLowerCase()
+  const id = id_param
 
   // ARTIST API CALL
   // If the user selects the ARTIST type from the menu, the ARTIST API will be called giving info about the selected ARTIST
@@ -118,6 +119,7 @@ async function loadData(id) {
       pic.setAttribute('src', `${data.images[0].url}`)
       infoDiv.appendChild(pic)
 
+      addSearch(data.name, "Artist", id)
     })
 
     // This API call gets the recommended ARTIST for the ARTIST submitted by the user
@@ -216,6 +218,7 @@ async function loadData(id) {
       pic.style.height = "40%"
       infoDiv.appendChild(pic)
 
+      addSearch(data.name, "Track", id)
     })
 
     // This API call gets the recommended TRACK for the TRACK submitted by the user
@@ -320,6 +323,7 @@ async function loadData(id) {
       pic.setAttribute('src', `${data.images[0].url}`)
       infoDiv.appendChild(pic)
 
+      addSearch(data.name, "Album", id)
     })
 
     // This API call gets the tracklist for the ALBUM selected by the user
@@ -378,9 +382,6 @@ async function loadData(id) {
       }
       recDiv.appendChild(table)
     })
-
-    searchResults
-
   }
 }
 
@@ -390,16 +391,17 @@ function millisToMinutesAndSeconds(millis) {
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
-async function addSearch() {
-  console.log('Creating Search') 
+async function addSearch(name, type, id) {
+  console.log('Creating Search')
   var host = window.location.origin
+  console.log(host)
 
   var test = await fetch(`${host}/history`, {
       method: 'POST',
       body: JSON.stringify({
-          "name": ``,
-          "type": ``,
-          "spotify_id": ``
+          "name": `${name}`,
+          "type": `${type}`,
+          "spotify_id": `${id}`
       }),
       headers: {
         "Content-Type": "application/json"
