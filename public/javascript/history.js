@@ -37,7 +37,7 @@ async function getSearch() {
             view.setAttribute('class', 'button-24')
             viewCell.appendChild(view)
             view.innerHTML = "View Results"
-            view.onclick = function () {loadHistoryResults(res[i].spotify_id, res[i].type)}
+            view.onclick = function () {loadHistoryResults(res[i].spotify_id, res[i].type, res[i].name)}
             row.appendChild(viewCell)
 
             table.appendChild(row)
@@ -45,8 +45,13 @@ async function getSearch() {
     })
 }
 
-function loadHistoryResults() {
-    
+async function loadHistoryResults(id, type, name) {
+    localStorage.setItem("spotify_id", id)
+    localStorage.setItem("spotify_name", name)
+    localStorage.setItem("searchType", type)
+    console.log(localStorage.getItem("spotify_name"),localStorage.getItem("searchType"))
+
+    window.location.href = "index.html";
 }
 
 window.onload = getSearch
