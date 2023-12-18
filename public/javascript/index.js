@@ -117,6 +117,7 @@ async function loadData(id) {
       const pic = document.createElement('img')
       pic.setAttribute('src', `${data.images[0].url}`)
       infoDiv.appendChild(pic)
+
     })
 
     // This API call gets the recommended ARTIST for the ARTIST submitted by the user
@@ -214,6 +215,7 @@ async function loadData(id) {
       pic.setAttribute('src', `${data.album.images[0].url}`)
       pic.style.height = "40%"
       infoDiv.appendChild(pic)
+
     })
 
     // This API call gets the recommended TRACK for the TRACK submitted by the user
@@ -377,6 +379,8 @@ async function loadData(id) {
       recDiv.appendChild(table)
     })
 
+    searchResults
+
   }
 }
 
@@ -384,4 +388,21 @@ function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+}
+
+async function addSearch() {
+  console.log('Creating Search') 
+  var host = window.location.origin
+
+  var test = await fetch(`${host}/history`, {
+      method: 'POST',
+      body: JSON.stringify({
+          "name": ``,
+          "type": ``,
+          "spotify_id": ``
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+  })
 }
