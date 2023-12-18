@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(52, 52, 52);
+    text-align: center;
+  }
+  
+  .topnav {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      overflow: hidden;
+      background-color: #077e21;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  
+  .topnav a {
+      color: #000000;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 25px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  .title{
+      color:white;
+      font-size: 50px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .content-box {
+      background-color: #077e21;
+      border: 3px white;
+      border-style: solid;
+      display: inline-block;
+      text-align: center;
+      width: 75%;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding-top: 25px;
+      padding-bottom: 10px;
+      padding: 10px;
+      font-size: 30px;
+      margin: 10px;
+  }
+  .custom-select {
+      min-width: 350px;
+      position: relative;
+      width: 50px;
+      
+  }
+  
+  select {
+      appearance: none;
+      /*  safari  */
+      -webkit-appearance: none;
+      /*  other styles for aesthetics */
+      width: 100%;
+      font-size: 1.15rem;
+      padding: 0.675em 6em 0.675em 1em;
+      background-color: rgb(52, 52, 52);
+      border: 1px solid white;
+      border-radius: 0.25rem;
+      color: white;
+      cursor: pointer;
+  }
+  
+  .custom-select::before,
+  .custom-select::after {
+      --size: 0.3rem;
+      content: "";
+      position: absolute;
+      right: 1rem;
+      pointer-events: none;
+  }
+  
+  .custom-select::before {
+      border-left: var(--size) solid transparent;
+      border-right: var(--size) solid transparent;
+      border-bottom: var(--size) solid white;
+      top: 40%;
+  }
+  
+  .custom-select::after {
+      border-left: var(--size) solid transparent;
+      border-right: var(--size) solid transparent;
+      border-top: var(--size) solid white;
+      top: 55%;
+  }
+  #search-input {
+      background-color: rgb(52, 52, 52);
+      width: 350px;
+      align-items: center;
+      border: 1px solid white;
+      border-radius: 0.25rem;
+      color: white;
+      padding: 15px;
+      font-size: 15px;
+  }
+  #searchResults{
+      width: 70%;
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+  table {
+      width: 75%;
+      margin: auto;
+      background-color: white;
+  }
+  table, th, td {
+      border: 2px solid black;
+      border-collapse: collapse;
+  }
+  td {
+      padding: 5px;
+  }
+  .button-24 {
+      background: rgb(52, 52, 52);
+      border: 1px solid white;
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 16px;
+      min-height: 40px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+  }
+
+  .button-24:hover,
+  .button-24:active {
+  background-color: white;
+  background-position: 0 0;
+  color: rgb(52, 52, 52);
+  border: 1px solid rgb(52, 52, 52);
+  border-radius: 6px;
+  }
+
+  .button-24:active {
+  opacity: .5;
+  }
+  .button-24-2 {
+      background: #077e21;
+      border: 1px solid white;
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: black;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 16px;
+      min-height: 40px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+  }
+
+  .button-24-2:hover,
+  .button-24-2:active {
+  background-color: white;
+  background-position: 0 0;
+  color: rgb(52, 52, 52);
+  border: 1px solid rgb(52, 52, 52);
+  border-radius: 6px;
+  }
+
+  .button-24-2:active {
+  opacity: .5;
+  }
+
+  #history {
+    text-align: center;
+    align-items: center;
+    width: 75%;
+    font-size: 20px;
+    border: 1px solid black;
+    background-color: white;
+    border-collapse: collapse;
+    }
+
+    #history td, #history th {
+        border: 1px solid;
+        padding: 10px;
+    }
