@@ -37,7 +37,7 @@ async function getSearch() {
             view.setAttribute('class', 'button-24')
             viewCell.appendChild(view)
             view.innerHTML = "View Results"
-            view.onclick = function () {loadHistoryResults(res[i].spotify_id)}
+            view.onclick = function () {loadHistoryResults(res[i].spotify_id, res[i].type)}
             row.appendChild(viewCell)
 
             table.appendChild(row)
@@ -45,8 +45,8 @@ async function getSearch() {
     })
 }
 
-async function loadHistoryResults(id) {
-    window.location.href = "index.html" + "?item_id="+id;
+function loadHistoryResults() {
+    
 }
 
 window.onload = getSearch
