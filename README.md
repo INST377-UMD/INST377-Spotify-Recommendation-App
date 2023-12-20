@@ -20,6 +20,9 @@ More information about this tool can be found [here](https://expressjs.com/).
 Nodemon: ```npm install -g nodemon```
 More information about this tool can be found [here](https://www.npmjs.com/package/nodemon).
 
+You will also need to use the Google Chrome browser while having CORS on.
+You can install CORS [here](https://mybrowseraddon.com/access-control-allow-origin.html).
+
 ## Running Locally
 
 To run our app locally, enter the following command into your terminal: 
@@ -27,7 +30,7 @@ To run our app locally, enter the following command into your terminal:
 
 You should receive the message ```App is running```
 
-Then navigate to localhost:4000 and everything should be running.
+Then navigate to localhost:4000 in Chrome and make sure CORS is turned on, everything should be running.
 
 To stop running the app, hold the CTRL button and type ```c``` in the terminal.
 
